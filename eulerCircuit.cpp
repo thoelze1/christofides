@@ -61,7 +61,7 @@ vector<int> findEulerCycleHelper(vector< vector<int> > graph, int numNodes) {
 	return cycle;
 }
 
-//Main functioni
+//Main function
 //Takes matrix representation of graph
 //Converts matrix to list
 //Finds an Eulerian Circuit
