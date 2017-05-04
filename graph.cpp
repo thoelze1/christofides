@@ -1,13 +1,35 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <limits>
 #include <cstdlib>
 #include <ctime>
+#include <string>
+#include <fstream>
+#include <stdio.h>
 
 #include "graph.hpp"
 
 using namespace std;
+
+// inputFileName: name of a text file
+// returns a graph
+vector< vector<int> > readGraph(string inputFileName) {
+    string line;
+    vector< vector<int> > graph;
+    ifstream infile(inputFileName);
+    while(getline(infile, line)) {
+        vector<int> lineData;
+        stringstream lineStream(line);
+        int value;
+        while(lineStream >> value) {
+            lineData.push_back(value);
+        }
+        graph.push_back(lineData);
+    }
+    return graph;
+}
 
 // numNodes is the number of nodes in the graph
 // returns a graph with random [0,9] edge weights
@@ -18,7 +40,7 @@ vector< vector<int> > randomGraph(int numNodes) {
             if(i == j) {
                 randomGraph[i][j] = 0;
             } else {
-                randomGraph[i][j] = rand() % 10;
+                randomGraph[i][j] = rand() % 9 + 1;
                 randomGraph[j][i] = randomGraph[i][j];
             }
         }
@@ -32,8 +54,9 @@ vector< vector<int> > randomGraph(int numNodes) {
 void printGraph(vector< vector<int> > graph, int numNodes) {
     for(int i = 0; i < numNodes; i++) {
         for(int j = 0; j < numNodes; j++) {
-            cout << " ";
-            cout << graph[i][j];
+            printf("%4d",graph[i][j]);
+            //cout << " ";
+            //cout << graph[i][j];
         }
         cout << endl;
     }

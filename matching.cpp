@@ -41,12 +41,12 @@ vector< vector<int> > greedyFlowPM(vector< vector<int> > graph, int numNodes) {
 // graph: adjacency matrix
 // numNodes: number of nodes in graph
 // returns minimal weight maximum matching adjacency matrix
-vector< vector<int> > greedyRandPM(vector< vector<int> > graph, int numNodes) {
+vector< vector<int> > greedyRandPM(vector< vector<int> > graph, int numNodes, vector<int> freeVertices) {
     vector< vector<int> > matching(numNodes,vector<int>(numNodes));
-    vector<int> freeVertices = oddVertices(graph, numNodes);
     int randIndex, randVertex, adjVertex, minIndex, minVertex, minWeight;
-    srand(time(0));
     while(!freeVertices.empty()) {
+        //cout << freeVertices.size();
+        //cout << endl;
         // pop a random vertex from free vertex list
         randIndex = rand() % freeVertices.size();
         randVertex = freeVertices[randIndex];
@@ -57,6 +57,8 @@ vector< vector<int> > greedyRandPM(vector< vector<int> > graph, int numNodes) {
         for(int i = 0; i < freeVertices.size(); i++) {
             adjVertex = freeVertices[i];
             if((graph[randVertex][adjVertex]>0)&&(graph[randVertex][adjVertex]<minWeight)) {
+                //cout << "TRUE";
+                //cout << endl;
                 minWeight = graph[randVertex][adjVertex];
                 minIndex = i;
                 minVertex = adjVertex;
@@ -85,5 +87,5 @@ void testPM(){
     }
     cout << endl;
     // print matching
-    printGraph(greedyRandPM(graph, numNodes), numNodes);
+    printGraph(greedyRandPM(graph, numNodes, oddVertices(graph, numNodes)), numNodes);
 }
