@@ -38,25 +38,29 @@ void chrisApprox(vector< vector<int> > graph, int numNodes) {
     
     // eulerian to hamiltonian
     vector<int> path = findEulerCycle(multi, numNodes);
+    cout << "Path: ";
     for(int i = 0; i < path.size(); i++) {
         cout << path[i];
         cout << " ";
     }
     cout << endl;
+
+    // cost
+    int cost = cycleCost(graph, numNodes, path);
+    cout << "Cost: " << cost << endl;
 }
 
 int main() {
     srand(time(0));
     
-    // random graph
+    // construct a graph
     int numNodes = 5;
     vector< vector<int> > graph = randomGraph(numNodes);
+    //vector< vector<int> > graph = readGraph("p01_d.txt");
+    //int numNodes = graph.size();
+
+    cout << "Graph:" << endl;
     printGraph(graph, numNodes);
-    cout << endl;
-    /*
-    vector< vector<int> > graph = readGraph("p01_d.txt");
-    int numNodes = graph.size();
-    */
 
     chrisApprox(graph, numNodes);
     
