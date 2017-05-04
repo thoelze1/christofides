@@ -27,6 +27,7 @@ vector< vector<int> > constructMST(vector< vector<int> > graph, vector<int> mst,
 
 	for(int i = 1; i < numNodes; i++) {
 		mstMatrix[mst[i]][i] = graph[i][mst[i]];
+		mstMatrix[i][mst[i]] = graph[i][mst[i]];
 	}
 
 	return mstMatrix;
