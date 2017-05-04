@@ -153,10 +153,3 @@ void testMultigraph(){
     printGraph(multigraph(graph1, numNodes, graph2, numNodes), numNodes);
     cout << endl;
 }
-
-int main() {
-    srand(time(0));
-    //testPM();
-    //testMultigraph();
-	return 0;
-}
