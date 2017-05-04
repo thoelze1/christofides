@@ -8,4 +8,7 @@ tsplib-xml-zip/pla7397.xml.zip
 tsplib-xml-zip/pcb3038.xml.zip
 tsplib-xml-zip/fnl4461.xml.zip
 tsplib-xml-zip/fl3795.xml.zip
+
+# Large Folders
 tsplib-xml/
+pagmo/
