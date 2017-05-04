@@ -1,0 +1,11 @@
+# OS Files
+.DS_Store
+
+# Large Files
+tsplib-xml-zip/rl5915.xml.zip
+tsplib-xml-zip/rl5934.xml.zip
+tsplib-xml-zip/pla7397.xml.zip
+tsplib-xml-zip/pcb3038.xml.zip
+tsplib-xml-zip/fnl4461.xml.zip
+tsplib-xml-zip/fl3795.xml.zip
+tsplib-xml/
