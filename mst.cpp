@@ -1,6 +1,5 @@
 #include <iostream>
 #include <limits.h>
-#include <vector>
 
 #include "mst.hpp"
 

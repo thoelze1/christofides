@@ -1,12 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 #include <limits>
 #include <cstdlib>
 #include <ctime>
-#include <string>
-#include <fstream>
 #include <stdio.h>
 
 #include "graph.hpp"
