@@ -3,7 +3,6 @@
 #include <stack>
 #include <unordered_map>
 #include <set>
-#include <vector>
 
 #include "eulerCircuit.hpp"
 
@@ -22,6 +21,21 @@ vector< vector<int> > matrixToList(vector< vector<int> > graph, int numNodes) {
 	}
 
 	return adjList;
+}
+
+// graph: adjacency matrix
+// numNodes: number of nodes in graph
+// cycle: a cycle of numNodes+1 nodes (must start and end on same node)
+// returns the sum of the weights of the edges traverse in the cycle
+int cycleCost(vector< vector<int> > graph, int numNodes, vector<int> cycle) {
+	int cost = 0;
+	if((cycle.size()!=numNodes+1)||(cycle[0]!=cycle[numNodes])) {
+		cout << "cycleCost() received an invalid cycle" << endl;
+	}
+	for(int i = 0; i < cycle.size() - 1; i++) {
+        cost += graph[cycle[i]][cycle[i+1]];
+	}
+	return cost;
 }
 
 //Takes an adjacency list representation because getting it to work
