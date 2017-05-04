@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <ctime>
 
+#include "graph.h"
+#include "multigraph.hpp"
+
 using namespace std;
 
 // graph1: adjacency matrix

@@ -5,6 +5,8 @@
 #include <set>
 #include <vector>
 
+#include "eulerCircuit.hpp"
+
 using namespace std;
 
 //Helper function to convert matrixToList

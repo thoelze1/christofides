@@ -2,6 +2,8 @@
 #include <limits.h>
 #include <vector>
 
+#include "mst.hpp"
+
 using namespace std;
 
 //Helper function to find min key value from vertices not in MST yet

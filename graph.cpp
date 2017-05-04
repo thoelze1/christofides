@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 
+#include "graph.hpp"
+
 using namespace std;
 
 // numNodes is the number of nodes in the graph

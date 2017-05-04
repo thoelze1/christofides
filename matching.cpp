@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <ctime>
 
+#include "graph.h"
+#include "matching.hpp"
+
 using namespace std;
 
 // graph: adjacency matrix
