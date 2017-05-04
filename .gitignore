@@ -10,5 +10,6 @@ tsplib-xml-zip/fnl4461.xml.zip
 tsplib-xml-zip/fl3795.xml.zip
 
 # Large Folders
+tsplib-mat/
 tsplib-xml/
 pagmo/
