@@ -69,12 +69,12 @@ vector<int> findEulerCycleHelper(vector< vector<int> > graph, int numNodes) {
 //Finds an Eulerian Circuit
 //Returns a vector<int> of the path
 
-vector<int> findEulerCycle(vector< vector<int> > graph) {
+vector<int> findEulerCycle(vector< vector<int> > graph, int numNodes) {
 	//Converts graph to adj list representation
-	vector< vector<int> > graphList = matrixToList(graph, graph.size());
+	vector< vector<int> > graphList = matrixToList(graph, numNodes);
 	
 	//Finds the Eulerian Cycle in reverse
-	vector<int> cycleEuler = findEulerCycleHelper(graphList, graphList.size());
+	vector<int> cycleEuler = findEulerCycleHelper(graphList, numNodes);
 	
 	//Reverses the previously found cycle
 	reverse(cycleEuler.begin(), cycleEuler.end());
