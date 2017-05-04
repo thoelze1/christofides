@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "graph.h"
+#include "graph.hpp"
 #include "matching.hpp"
 
 using namespace std;
