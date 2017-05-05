@@ -11,10 +11,12 @@ import PyGMO.util
 for xml in os.listdir("tsplib-xml/"):
   txt = "tsplib-mat/" + os.path.splitext(xml)[0] + ".txt"
   xml = "tsplib-xml/" + xml
-  # print(xml)
-  # print(txt)
+  print(xml)
+  print(txt)
   adjMatrix = open(txt,"w")
   weights = PyGMO.util._tsp.read_tsplib(xml)
+  # PyGMO.util._tsp._print_matrix(weights)
+  print(txt);
   high = 0
   for line in weights:
     for value in line:
@@ -28,7 +30,6 @@ for xml in os.listdir("tsplib-xml/"):
 
 # printing the weights matrix
 # tsputil.print_matrix(weights)
-PyGMO.util._tsp._print_matrix(weights)
 
 # creating a tsp problem from the imported weights matrix
 # tsp_instance = tsp(weights)
