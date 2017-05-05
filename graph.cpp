@@ -19,9 +19,9 @@ vector< vector<int> > readGraph(string inputFileName) {
     while(getline(infile, line)) {
         vector<int> lineData;
         stringstream lineStream(line);
-        int value;
+        string value;
         while(lineStream >> value) {
-            lineData.push_back(value);
+            lineData.push_back(stoi(value));
         }
         graph.push_back(lineData);
     }
@@ -51,7 +51,7 @@ vector< vector<int> > randomGraph(int numNodes) {
 void printGraph(vector< vector<int> > graph, int numNodes) {
     for(int i = 0; i < numNodes; i++) {
         for(int j = 0; j < numNodes; j++) {
-            printf("%4d",graph[i][j]);
+            printf("%10d",graph[i][j]);
             //cout << " ";
             //cout << graph[i][j];
         }

@@ -29,8 +29,13 @@ vector< vector<int> > matrixToList(vector< vector<int> > graph, int numNodes) {
 // returns the sum of the weights of the edges traverse in the cycle
 int cycleCost(vector< vector<int> > graph, int numNodes, vector<int> cycle) {
 	int cost = 0;
-	if((cycle.size()!=numNodes+1)||(cycle[0]!=cycle[numNodes])) {
-		cout << "cycleCost() received an invalid cycle" << endl;
+	if(cycle.size()!=numNodes+1) {
+		cout << "cycleCost() received a cycle of wrong size" << endl;
+		return 0;
+        }
+        if(cycle[0]!=cycle[numNodes]) {
+		cout << "cycleCost() received a path. not a cycle" << endl;
+		return 0;
 	}
 	for(int i = 0; i < cycle.size() - 1; i++) {
         cost += graph[cycle[i]][cycle[i+1]];
