@@ -20,8 +20,8 @@ for xml in os.listdir("tsplib-xml/"):
   high = 0
   for line in weights:
     for value in line:
-      if value > high:
-        high = value
+      if len(str(value)) > high:
+        high = len(str(value))
   width = len(str(high)) + 1
   for line in weights:
     for value in line:

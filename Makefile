@@ -14,4 +14,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.o $(EXECUTABLE) *.stackdump output.txt
+	rm -f *.o $(EXECUTABLE) *.stackdump

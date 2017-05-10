@@ -57,66 +57,92 @@ int chrisApprox(vector< vector<int> > graph, int numNodes) {
 
 int main(int argc, char *argv[]) {
     srand(time(0));
-    
+   
+    int numNodes = stoi(argv[1]); 
+    vector< vector<int> > graph = randomGraph(numNodes);
+    //vector< vector<int> > graph = readGraph("tsplib-mat/burma14.txt");
+
+	/*
     string correctOutputs = argv[1];
     string line, fileName, answer, dummy;
 
     vector<string> inputFiles;
-    vector<string> inputFilesComplete;
     vector<int> minimumTourValues;
-    vector<int> ourTourValues;
-    vector< vector<int> > graph;
 
-    //vector< vector<int> > graph = randomGraph(280);
-    //vector< vector<int> > graph = readGraph("tsplib-mat/burma14.txt");
     //int numNodes = graph.size();
 
     ifstream infile(correctOutputs);
 
     while(getline(infile, line)) {
         stringstream s(line);
-	s >> fileName >> dummy >> answer;
-
-	inputFiles.push_back(fileName);
-	minimumTourValues.push_back(stoi(answer));
+        s >> fileName >> dummy >> answer;
+        inputFiles.push_back(fileName);
+        minimumTourValues.push_back(stoi(answer));
     }
 
     for(int i = 0; i < inputFiles.size(); i++) {
-	inputFiles[i].append(".txt");
-	inputFiles[i].insert(0, "tsplib-mat/");
+        inputFiles[i].append(".txt");
+        inputFiles[i].insert(0, "tsplib-mat/");
     }
-
+    
+    int iterations = 10;
+    vector<float> totals(20);
+    for(int j = 0; j < iterations; j++) {
+    vector<int> ourTourValues;
+    vector< vector<int> > graph;
     for(int i = 0; i < inputFiles.size(); i++) {
-	graph = readGraph(inputFiles[i]);
-	ourTourValues.push_back(chrisApprox(graph, graph.size())); 
-	if(ourTourValues.back() == 0) cout << inputFiles[i] << endl;;
+        graph = readGraph(inputFiles[i]);
+        ourTourValues.push_back(chrisApprox(graph, graph.size())); 
+        if(ourTourValues.back() == 0) cout << inputFiles[i] << endl;;
     }
 
-    vector<float> ratios;
+    vector<float> ratios(ourTourValues.size());
 
     for(int i = 0; i < ourTourValues.size(); i++) {
-	ratios.push_back((float) ourTourValues[i] / minimumTourValues[i]);
+        ratios[i] = ((float) ourTourValues[i] / minimumTourValues[i]);
     }
 
     for(int i = 0; i < ratios.size(); i++) {
-	cout << ratios[i] << endl;
+        //cout << ratios[i] << endl;
     }
+    // cout << endl;
 
     float sum = 0;
 
-    cout << endl;
 
+    vector<int> intervals(20);
     for(int i = 0; i < ratios.size(); i++) {
-	if(ratios[i] > 2) continue;
-
+        if(ratios[i] > 3) continue;
         sum += ratios[i];
+        intervals[(int)((ratios[i]-1)*10)]++;
+        totals[(int)((ratios[i]-1)*10)]++;
+    }
+
+    for(int i = 0; i < intervals.size(); i++) {
+        cout << "Iteration " << j << " " << ((0.1*i)+1) << ": " << intervals[i] << endl;
     }
 
     cout << sum / (ratios.size() - 1) << endl;
 
-    //printGraph(graph, 14);
+    }
+    for(int i = 0; i < totals.size(); i++) {
+        cout << "Total " << ((0.1*i)+1) << ": " << totals[i] << endl;
+    }
 
-    //chrisApprox(graph, 14);
+    for(int i = 0; i < totals.size(); i++) {
+        totals[i] = ((float)totals[i])/(90*iterations)*100;
+        cout << "Average " << ((0.1*i)+1) << ": " << totals[i] << "%%" << endl;
+    }
+    */
+    //printGraph(graph, 14);
+    
+    clock_t begin = clock();
+
+    chrisApprox(graph, numNodes);
+
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout << elapsed_secs << endl;
     
     return 0;
 }

@@ -29,7 +29,7 @@ vector< vector<int> > readGraph(string inputFileName) {
 }
 
 // numNodes is the number of nodes in the graph
-// returns a graph with random [0,9] edge weights
+// returns a complete graph with random [0,9] edge weights
 vector< vector<int> > randomGraph(int numNodes) {
     vector< vector<int> > randomGraph(numNodes, vector<int>(numNodes));
     for(int i = 0; i < numNodes; i++) {
@@ -39,6 +39,29 @@ vector< vector<int> > randomGraph(int numNodes) {
             } else {
                 randomGraph[i][j] = rand() % 9 + 1;
                 randomGraph[j][i] = randomGraph[i][j];
+            }
+        }
+    }
+    return randomGraph;
+}
+
+// numNodes is the number of nodes in the graph
+// returns a complete metric graph with [0,9] edge weights
+vector< vector<int> > metricGraph(int numNodes) {
+    vector< vector<int> > randomGraph(numNodes, vector<int>(numNodes));
+    vector< vector< vector<int> > > triangles(numNodes, vector< vector<int>(numNodes) >(numNodes);
+    for(int j = 0; j < numNodes; j++) {
+        for(int i = 0; i <= j; i++) {
+            if(i == j) {
+                randomGraph[i][j] = 0;
+            } else {
+                int minWeight = 0;
+                int maxWeight = numeric_limits<int>::max();
+                for(int p = 0; p < i; k++) {
+                    for(int q = p + 1; q < j)
+                }
+                randomGraph[i][j] = metricWeight;
+                randomGraph[j][i] = metricWeight;
             }
         }
     }

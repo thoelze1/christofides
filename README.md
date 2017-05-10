@@ -10,6 +10,10 @@ Slides: http://www.dis.uniroma1.it/~alberto/didattica/tcs-2011/alberto/TCS-appro
 ## Minimum Weight Perfect Matching
 Linear programming: https://github.com/knyttl/Non-bipartite-Minimum-Perfect-Matching
 
+## Other implementations of Christofides
+https://github.com/beckysag/traveling-salesman
+https://github.com/dsrahul30/Christofides/blob/master/Christofides/christofides.py
+
 
 ## TSPLIB
 https://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/
