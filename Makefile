@@ -13,5 +13,8 @@ $(EXECUTABLE): $(OBJECTS)
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
 
+run: all
+	./christofides
+	
 clean:
 	rm -f *.o $(EXECUTABLE) *.stackdump
