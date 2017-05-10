@@ -15,6 +15,8 @@ HOW TO RUN
 
 make run
 
+This will take a while, give it some time...
+
 
 DATA STRUCTURES
 ---------------
