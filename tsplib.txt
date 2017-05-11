@@ -1,3 +1,0 @@
-Solved TSPLIB instances of small size used for testing
-
-
