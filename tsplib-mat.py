@@ -1,12 +1,7 @@
-# copied directly from http://esa.github.io/pygmo/tutorials/create_tsp.html
-
-# from PyGMO.util import tsp as tsputil
 import os
-import PyGMO.util
-# from PyGMO.problem import tsp
 
-# importing the XML file
-# weights = tsputil.read_tsplib('burma14.xml')
+sys.dont_write_bytecode=True
+import tsplib
 
 for xml in os.listdir("tsplib-xml/"):
   txt = "tsplib-mat/" + os.path.splitext(xml)[0] + ".txt"
@@ -14,8 +9,7 @@ for xml in os.listdir("tsplib-xml/"):
   print(xml)
   print(txt)
   adjMatrix = open(txt,"w")
-  weights = PyGMO.util._tsp.read_tsplib(xml)
-  # PyGMO.util._tsp._print_matrix(weights)
+  weights = tsplib.read_tsplib(xml)
   print(txt);
   high = 0
   for line in weights:
@@ -27,12 +21,3 @@ for xml in os.listdir("tsplib-xml/"):
     for value in line:
       adjMatrix.write(str(value).rjust(width));
     adjMatrix.write("\n");
-
-# printing the weights matrix
-# tsputil.print_matrix(weights)
-
-# creating a tsp problem from the imported weights matrix
-# tsp_instance = tsp(weights)
-
-# printing the tsp problem details to console
-# print tsp_instance
