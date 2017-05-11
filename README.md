@@ -1,3 +1,10 @@
+# To Do
+
+Implement approximation within constant factor of 2 by using dfs on mst and skipping vertices  
+Generate metric graphs with random weights  
+Test other greedy algorithms  
+Implement perfect matching using linear programming solution below.
+
 # Christofides Algorithm
 
 ## Resources
